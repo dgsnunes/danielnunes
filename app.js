@@ -9,6 +9,8 @@ var usuario = require('./routes/usuario');
 var perfil = require('./routes/perfil');
 var aluno = require('./routes/aluno');
 var vaga = require('./routes/vaga');
+var produto = require('./routes/produto');
+var jogador = require('./routes/jogador');
 
 var mongoose = require('mongoose');
 
@@ -58,6 +60,8 @@ app.use('/usuario', usuario);
 app.use('/perfil', perfil);
 app.use('/aluno', aluno);
 app.use('/vaga', vaga);
+app.use('/produto', produto);
+app.use('/jogador', jogador);
 
 
 
