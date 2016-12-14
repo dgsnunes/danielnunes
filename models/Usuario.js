@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var UsuarioSchema = new mongoose.Schema({
   nome: String,
   idade: Number,
-  perfil:{
+  perfil : {
   	 nome:String
   }
 });
