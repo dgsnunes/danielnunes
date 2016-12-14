@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
-var Usuario = require('../model/Usuario.js');
+var Usuario = require('../models/Usuario.js');
 
 /* GET /aluno Listagem de usuários. */
 router.get('/', function(req, res, next) {
