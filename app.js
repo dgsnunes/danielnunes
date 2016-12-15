@@ -11,6 +11,7 @@ var aluno = require('./routes/aluno');
 var vaga = require('./routes/vaga');
 var produto = require('./routes/produto');
 var jogador = require('./routes/jogador');
+var login = require('./routes/login');
 
 var mongoose = require('mongoose');
 
@@ -62,7 +63,7 @@ app.use('/aluno', aluno);
 app.use('/vaga', vaga);
 app.use('/produto', produto);
 app.use('/jogador', jogador);
-
+app.use('/login', login);
 
 
 //Configuração de páginas não encontradas

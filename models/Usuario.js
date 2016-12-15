@@ -7,7 +7,9 @@ var UsuarioSchema = new mongoose.Schema({
   endereco: String,
   perfil : {
   	 nome:String
-  }
+  },
+  login: String,
+  senha: String
 });
 
 module.exports = mongoose.model('Usuario', UsuarioSchema);
