@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+var auth = require('./auth');
 var Perfil = require('../models/Perfil.js');
 
 /* GET /perfil Listagem de perfis. */
