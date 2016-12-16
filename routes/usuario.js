@@ -14,7 +14,7 @@ router.route('/').get(auth, function(req, res, next) {
 });
 
 /* POST /aluno Cadastro de usuário */
-router.route('/').post('/', function(req, res, next) {
+router.route('/').post(auth, function(req, res, next) {
   Usuario.create(req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);

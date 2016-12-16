@@ -21,7 +21,7 @@ router.route('/').post(auth, function(req, res, next) {
 });
 
 /* GET /aluno/id  Lista filtrada por um usuário*/
-router.route('/:id').get('/:id', function(req, res, next) {
+router.route('/:id').get(auth, function(req, res, next) {
   Aluno.findById(req.params.id, function (err, post) {
     if (err) return next(err);
     res.json(post);
@@ -29,7 +29,7 @@ router.route('/:id').get('/:id', function(req, res, next) {
 });
 
 /* PUT /aluno/:id Salva a edição de usuário */
-router.route('/:id').put('/:id', function(req, res, next) {
+router.route('/:id').put(auth, function(req, res, next) {
   Aluno.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
@@ -37,7 +37,7 @@ router.route('/:id').put('/:id', function(req, res, next) {
 });
 
 /* DELETE /aluno/:id Deletando o usuário a partir do id */
-router.route('/:id').delete('/:id', function(req, res, next) {
+router.route('/:id').delete(auth, function(req, res, next) {
   Aluno.findByIdAndRemove(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
