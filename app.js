@@ -3,6 +3,7 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var cors = require('cors')
 
 var routes = require('./routes/index');
 var usuario = require('./routes/usuario');
@@ -40,6 +41,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 // // Add headers
 app.use(function(req, res, next) {
