@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 var Usuario = require('../models/Usuario.js');
 
 /* GET /aluno Listagem de usuários. */
-router.get('/', function(req, res, next) {
+router.route('/').get(auth, function(req, res, next) {
   Usuario.find(function (err, aluno) {
     if (err) return next(err);
     res.json(aluno);
@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 });
 
 /* POST /aluno Cadastro de usuário */
-router.post('/', function(req, res, next) {
+router.route('/').post('/', function(req, res, next) {
   Usuario.create(req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
@@ -22,7 +22,7 @@ router.post('/', function(req, res, next) {
 });
 
 /* GET /aluno/id  Lista filtrada por um usuário*/
-router.get('/:id', function(req, res, next) {
+router.route('/:id').get(auth, function(req, res, next) {
   Usuario.findById(req.params.id, function (err, post) {
     if (err) return next(err);
     res.json(post);
@@ -30,7 +30,7 @@ router.get('/:id', function(req, res, next) {
 });
 
 /* PUT /aluno/:id Salva a edição de usuário */
-router.put('/:id', function(req, res, next) {
+router.route('/:id').put(auth, function(req, res, next) {
   Usuario.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
@@ -38,7 +38,7 @@ router.put('/:id', function(req, res, next) {
 });
 
 /* DELETE /aluno/:id Deletando o usuário a partir do id */
-router.delete('/:id', function(req, res, next) {
+router.route('/:id').delete(auth, function(req, res, next) {
   Usuario.findByIdAndRemove(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
